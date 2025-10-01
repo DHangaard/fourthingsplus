@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<title>Create account</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<header>
+    <nav>
+        <img id="logo" th:src="@{images/fourthingsplus.png}" alt="Four Things Plus logo"> <!-- Not working as intended -->
+        <img id="menu-icon" th:src="@{images/menu.svg}" alt="Menu icon"> <!-- Not working as intended -->
+    </nav>
+</header>
+<body>
+<main class="hero">
+    <h1>Create User</h1>
+
+    <form th:action="@{/createUser}" method="post">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <label for="retype-password">Password:</label>
+        <input type="password" id="retype-password" name="retype-password" required>
+        <br>
+
+        <button type="submit">Create User</button>
+        <p class="errorUsername" th:text="${errorUsername}"></p>
+        <p class="errorPassword" th:text="${errorPassword}"></p>
+    </form>
+
+    <p th:text="${errorMessage}"></p>
+
+    <br>
+    <a th:href="@{/index.html}">Back to Home</a>
+</main>
+</body>
+</html>

@@ -14,8 +14,7 @@ public class UserMapper {
     }
 
     public User login(String username, String password) throws DatabaseException {
-        String sql = "SELECT user_id, user_name, password" +
-                "FROM users WHERE user_name = ? AND password = ?";
+        String sql = "SELECT user_id, user_name, password FROM users WHERE user_name = ? AND password = ?";
         User user = null;
 
         try (Connection connection = connectionPool.getConnection();
@@ -62,7 +61,7 @@ public class UserMapper {
         return user;
     }
 
-    public boolean deleteMember(int user_id) throws DatabaseException {
+    public boolean deleteUser(int user_id) throws DatabaseException {
         boolean result = false;
         String sql = "DELETE FROM users WHERE user_id = ?";
         try (Connection connection = connectionPool.getConnection()) {

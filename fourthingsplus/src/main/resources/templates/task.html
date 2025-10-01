@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<title>Task</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<header>
+    <nav>
+        <img id="logo" th:src="@{images/fourthingsplus.png}" alt="Four Things Plus logo"> <!-- Not working as intended -->
+        <img id="menu-icon" th:src="@{images/menu.svg}" alt="Menu icon"> <!-- Not working as intended -->
+    </nav>
+</header>
+<body>
+<main class="hero">
+    <p class="welcomeuser" th:text="${welcomeuser}"></p>
+    <form th:action="@{/addTask}" method="post">
+        <label for="addTask">Add task</label>
+        <input type="text" id="addTask" name="addTask" placeholder="Add a task" required>
+    </form>
+</main>
+</body>
+</html>
